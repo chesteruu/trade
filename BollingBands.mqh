@@ -14,7 +14,6 @@ public:
         UNKNOWNBREAKOUT
     };
 
-
 private:
 
     int movingAverage;

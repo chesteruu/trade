@@ -26,7 +26,8 @@ double BollingBands::getPowMeanPercentage()
     return result / movingAverage;
 }
 
-BollingBands::BBState BollingBands::isStable(const double &upperBand,
+
+void BollingBands::isStable(const double &upperBand,
                             const double &lowerBand)
 {
     double diff = upperBand - lowerBand;
@@ -42,6 +43,7 @@ BollingBands::BBState BollingBands::isStable(const double &upperBand,
 
     double sdPercentage = Math::sqar(getPowMeanPercentage() - Math::sqar(getMeanPercentage()));
 
+
     if(sdPercentage < stableThreshold)
     {
         state = UNKNOWNBREAKOUT;
@@ -49,4 +51,5 @@ BollingBands::BBState BollingBands::isStable(const double &upperBand,
 
     state = STABLE;
 }
+
 
